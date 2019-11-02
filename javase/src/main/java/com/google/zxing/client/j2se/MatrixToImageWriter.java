@@ -62,6 +62,7 @@ public final class MatrixToImageWriter {
     int height = matrix.getHeight();
     BufferedImage image = new BufferedImage(width, height, config.getBufferedImageColorModel());
     int onColor = config.getPixelOnColor();
+    System.out.println("WRITING CONFIG WITH COLORS "+config.getPixelOnColor() + " off color" +config.getPixelOffColor());
     int offColor = config.getPixelOffColor();
     int[] rowPixels = new int[width];
     BitArray row = new BitArray(width);
