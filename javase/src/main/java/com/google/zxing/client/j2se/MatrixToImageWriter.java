@@ -35,7 +35,7 @@ import java.nio.file.Path;
  */
 public final class MatrixToImageWriter {
 
-  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig();
+  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig(0xFF102030, 0xFF405060);
 
   private MatrixToImageWriter() {}
 
@@ -62,7 +62,6 @@ public final class MatrixToImageWriter {
     int height = matrix.getHeight();
     BufferedImage image = new BufferedImage(width, height, config.getBufferedImageColorModel());
     int onColor = config.getPixelOnColor();
-    System.out.println("WRITING CONFIG WITH COLORS "+config.getPixelOnColor() + " off color" +config.getPixelOffColor());
     int offColor = config.getPixelOffColor();
     int[] rowPixels = new int[width];
     BitArray row = new BitArray(width);
