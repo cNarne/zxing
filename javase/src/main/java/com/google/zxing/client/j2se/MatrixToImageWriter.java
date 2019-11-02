@@ -35,7 +35,7 @@ import java.nio.file.Path;
  */
 public final class MatrixToImageWriter {
 
-  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig();
+  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig(0xFF00FF00, 0xFFFF0000);
 
   private MatrixToImageWriter() {}
 
