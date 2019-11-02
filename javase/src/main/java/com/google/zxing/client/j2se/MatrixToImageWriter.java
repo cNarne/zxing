@@ -83,8 +83,8 @@ public final class MatrixToImageWriter {
    * @deprecated use {@link #writeToPath(BitMatrix, String, Path)}
    */
   @Deprecated
-  public static void writeToFile(BitMatrix matrix, String format, File file) throws IOException {
-    writeToPath(matrix, format, file.toPath());
+  public static void writeToFile(BitMatrix matrix, String format, File file, int onColor, int offColor) throws IOException {
+    writeToPath(matrix, format, file.toPath(), onColor, offColor);
   }
 
   /**
@@ -96,8 +96,8 @@ public final class MatrixToImageWriter {
    * @throws IOException if writes to the stream fail
    * @see #toBufferedImage(BitMatrix)
    */
-  public static void writeToPath(BitMatrix matrix, String format, Path file) throws IOException {
-    writeToPath(matrix, format, file, DEFAULT_CONFIG);
+  public static void writeToPath(BitMatrix matrix, String format, Path file, int onColor, int offColor) throws IOException {
+    writeToPath(matrix, format, file, new MatrixToImageConfig(onColor, offColor));
   }
 
   /**
