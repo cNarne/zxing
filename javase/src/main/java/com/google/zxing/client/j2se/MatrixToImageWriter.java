@@ -35,7 +35,7 @@ import java.nio.file.Path;
  */
 public final class MatrixToImageWriter {
 
-  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig(0xFF00FF00, 0xFFFF0000);
+  private static final MatrixToImageConfig DEFAULT_CONFIG = new MatrixToImageConfig();
 
   private MatrixToImageWriter() {}
 
@@ -83,8 +83,8 @@ public final class MatrixToImageWriter {
    * @deprecated use {@link #writeToPath(BitMatrix, String, Path)}
    */
   @Deprecated
-  public static void writeToFile(BitMatrix matrix, String format, File file, int onColor, int offColor) throws IOException {
-    writeToPath(matrix, format, file.toPath(), onColor, offColor);
+  public static void writeToFile(BitMatrix matrix, String format, File file) throws IOException {
+    writeToPath(matrix, format, file.toPath());
   }
 
   /**
@@ -96,8 +96,8 @@ public final class MatrixToImageWriter {
    * @throws IOException if writes to the stream fail
    * @see #toBufferedImage(BitMatrix)
    */
-  public static void writeToPath(BitMatrix matrix, String format, Path file, int onColor, int offColor) throws IOException {
-    writeToPath(matrix, format, file, new MatrixToImageConfig(onColor, offColor));
+  public static void writeToPath(BitMatrix matrix, String format, Path file) throws IOException {
+    writeToPath(matrix, format, file, DEFAULT_CONFIG);
   }
 
   /**
